@@ -2,11 +2,7 @@ const customers = [];
 
 class StatementController {
     static show = (req, res) => {
-        const { cpf } = req.headers;
-        const customer = customers.find(customer => customer.cpf === cpf); 
-        if (!customer) {
-            return res.status(400).json({ error: 'Customer not found!' });
-        }
+        const { customer } = req;
         return res.json(customer.statement);
     }
 
@@ -19,3 +15,5 @@ class StatementController {
         return res.json(customer.statement);
     }
 }
+
+module.exports = StatementController;

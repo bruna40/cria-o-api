@@ -1,8 +1,11 @@
-const  { Router } = require('express');
+const  express = require('express');
 const StatementController = require('../controllers/StatementController');
+const  verifyIfExistsAccount  = require('../middlewares/verifyIfExistsAccount');
 
-const router = Router();
+const router = express.Router();
 
-router.get('/statement', StatementController);
+router
+    .get('/statement', verifyIfExistsAccount, StatementController.show)
+    .get('/statement/:cpf', StatementController.showByCpf);
 
 module.exports = router;

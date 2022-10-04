@@ -18,7 +18,7 @@ class AccountController {
             id:uuidv4(),
             statement: []
         })
-        return res.status(201).send();
+        return res.status(201).json({menssage: 'Customer created!'});
     }
 }
 

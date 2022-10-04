@@ -1,3 +1,5 @@
+const customers = [];
+
 function verifyIfExistsAccount(request, response, next) {
   const { cpf } = request.headers;
 
