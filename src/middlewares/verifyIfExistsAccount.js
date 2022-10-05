@@ -1,4 +1,4 @@
-const customers = [];
+const customers = require('../utils/array');
 
 function verifyIfExistsAccount(request, response, next) {
   const { cpf } = request.headers;
@@ -9,9 +9,9 @@ function verifyIfExistsAccount(request, response, next) {
     return response.status(400).json({ error: "Customer not found" });
   }
 
-    request.customer = customer;
+  request.customer = customer;
 
-    return next();
+  next();
 
 }
 

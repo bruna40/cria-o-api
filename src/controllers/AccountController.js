@@ -1,9 +1,9 @@
 const { v4:uuidv4 } = require('uuid');
 
-const customers = [];
+const customers = require('../utils/array');
 
 class AccountController {
-    static create = (req, res) => {
+    static create(req, res) {
         const { cpf, name } = req.body;
         const customerAlreadyExists = customers.some(
             (customer) => customer.cpf === cpf

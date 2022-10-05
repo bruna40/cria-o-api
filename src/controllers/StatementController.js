@@ -1,12 +1,12 @@
-const customers = [];
+const customers = require('../utils/array');
 
 class StatementController {
-    static show = (req, res) => {
+    static show(req, res) {
         const { customer } = req;
         return res.json(customer.statement);
     }
 
-    static showByCpf = (req, res) => {
+    static showByCpf(req, res) {
         const { cpf } = req.params;
         const customer = customers.find(customer => customer.cpf === cpf); 
         if (!customer) {
