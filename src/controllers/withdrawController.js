@@ -1,5 +1,7 @@
+const getBalance = require('../services/functions');
+
 class withdrawController {
-    static saque(req, res) {
+    static create(req, res) {
         const { amount } = req.body;
         const { customer } = req;
         const balance = getBalance(customer.statement);
@@ -12,7 +14,7 @@ class withdrawController {
             type: 'debit',
         }
         customer.statement.push(statementOperation);
-        return res.status(201).send();
+        return res.status(201).send({customer});
      
     }
 }
