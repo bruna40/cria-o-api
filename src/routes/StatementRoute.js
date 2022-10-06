@@ -6,6 +6,7 @@ const router = express.Router();
 
 router
     .get('/statement', verifyIfExistsAccount, StatementController.show)
-    .get('/statement/:cpf', StatementController.showByCpf);
+    .get('/statement/:cpf', verifyIfExistsAccount, StatementController.showByCpf)
+    .get('/statement/date',  verifyIfExistsAccount, StatementController.showByDate);
 
 module.exports = router;

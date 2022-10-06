@@ -20,6 +20,24 @@ class AccountController {
         })
         return res.status(201).json({menssage: 'Customer created!'});
     }
+
+    static update(req, res) {
+        const { name } = req.body;
+        const { customer } = req;
+        customer.name = name;
+        return res.status(201).json({menssage: 'Customer updated!'});
+    }
+
+    static show(req, res) {
+        const { customer } = req;
+        return res.json(customer);
+    }
+
+    static delete(req, res) {
+        const { customer } = req;
+        customers.splice(customer, 1);
+        return res.status(200).json({menssage: 'Customer deleted!'});
+    }
 }
 
 module.exports = AccountController;

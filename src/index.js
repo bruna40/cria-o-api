@@ -3,6 +3,7 @@ const AccountRoute = require('./routes/AccountRoute');
 const StatementRoute = require('./routes/StatementRoute');
 const DepositRoute = require('./routes/DepositRoute');
 const WithdrawRoute = require('./routes/WithdrawRoute');
+const BalanceRoute = require('./routes/BalanceRoute');
 
 const app = express();
 const port = 3333;
@@ -13,6 +14,7 @@ app.use(
   StatementRoute,
   DepositRoute,
   WithdrawRoute,
+  BalanceRoute,
   );
 
 app.listen(port, () => {
